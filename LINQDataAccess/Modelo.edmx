@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CursosVirtualesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Continentes">
+          <Key>
+            <PropertyRef Name="ContinenteId" />
+          </Key>
+          <Property Name="ContinenteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CursoPersona">
+          <Key>
+            <PropertyRef Name="Curso_CursoId" />
+            <PropertyRef Name="Persona_PersonaId" />
+          </Key>
+          <Property Name="Curso_CursoId" Type="int" Nullable="false" />
+          <Property Name="Persona_PersonaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="CursoId" />
+          </Key>
+          <Property Name="CursoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" />
+          <Property Name="Idioma" Type="nvarchar(max)" />
+          <Property Name="Precio" Type="float" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="PaisId" />
+          </Key>
+          <Property Name="PaisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" />
+          <Property Name="Capital" Type="nvarchar(max)" />
+          <Property Name="Poblacion" Type="int" Nullable="false" />
+          <Property Name="Establecido" Type="int" Nullable="false" />
+          <Property Name="ContinenteId" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="PersonaId" />
+          </Key>
+          <Property Name="PersonaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" />
+          <Property Name="Apellido" Type="nvarchar(max)" />
+          <Property Name="Genero" Type="nvarchar(max)" />
+          <Property Name="CorreoElectronico" Type="nvarchar(max)" />
+          <Property Name="Identificador" Type="nvarchar(max)" />
+          <Property Name="TipoPersona" Type="nvarchar" MaxLength="25" />
+          <Property Name="PaisId" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_CursoPersona_dbo_Cursos_Curso_CursoId">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CursoPersona" Type="Self.CursoPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoId" />
+            </Principal>
+            <Dependent Role="CursoPersona">
+              <PropertyRef Name="Curso_CursoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CursoPersona_dbo_Personas_Persona_PersonaId">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CursoPersona" Type="Self.CursoPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="PersonaId" />
+            </Principal>
+            <Dependent Role="CursoPersona">
+              <PropertyRef Name="Persona_PersonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Paises_dbo_Continentes_ContinenteId">
+          <End Role="Continentes" Type="Self.Continentes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Paises" Type="Self.Paises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continentes">
+              <PropertyRef Name="ContinenteId" />
+            </Principal>
+            <Dependent Role="Paises">
+              <PropertyRef Name="ContinenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Personas_dbo_Paises_PaisId">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="PaisId" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="PaisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CursosVirtualesModelStoreContainer">
+          <EntitySet Name="Continentes" EntityType="Self.Continentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CursoPersona" EntityType="Self.CursoPersona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_CursoPersona_dbo_Cursos_Curso_CursoId" Association="Self.FK_dbo_CursoPersona_dbo_Cursos_Curso_CursoId">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursoPersona" EntitySet="CursoPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CursoPersona_dbo_Personas_Persona_PersonaId" Association="Self.FK_dbo_CursoPersona_dbo_Personas_Persona_PersonaId">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="CursoPersona" EntitySet="CursoPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Paises_dbo_Continentes_ContinenteId" Association="Self.FK_dbo_Paises_dbo_Continentes_ContinenteId">
+            <End Role="Continentes" EntitySet="Continentes" />
+            <End Role="Paises" EntitySet="Paises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Personas_dbo_Paises_PaisId" Association="Self.FK_dbo_Personas_dbo_Paises_PaisId">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Personas" EntitySet="Personas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CursosVirtualesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Continentes">
+          <Key>
+            <PropertyRef Name="ContinenteId" />
+          </Key>
+          <Property Name="ContinenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Paises" Relationship="Self.FK_dbo_Paises_dbo_Continentes_ContinenteId" FromRole="Continentes" ToRole="Paises" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="CursoId" />
+          </Key>
+          <Property Name="CursoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Idioma" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Personas" Relationship="Self.CursoPersona" FromRole="Cursos" ToRole="Personas" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="PaisId" />
+          </Key>
+          <Property Name="PaisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Capital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Poblacion" Type="Int32" Nullable="false" />
+          <Property Name="Establecido" Type="Int32" Nullable="false" />
+          <Property Name="ContinenteId" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Continentes" Relationship="Self.FK_dbo_Paises_dbo_Continentes_ContinenteId" FromRole="Paises" ToRole="Continentes" />
+          <NavigationProperty Name="Personas" Relationship="Self.FK_dbo_Personas_dbo_Paises_PaisId" FromRole="Paises" ToRole="Personas" />
+        </EntityType>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="PersonaId" />
+          </Key>
+          <Property Name="PersonaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CorreoElectronico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Identificador" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TipoPersona" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PaisId" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Paises" Relationship="Self.FK_dbo_Personas_dbo_Paises_PaisId" FromRole="Personas" ToRole="Paises" />
+          <NavigationProperty Name="Cursos" Relationship="Self.CursoPersona" FromRole="Personas" ToRole="Cursos" />
+        </EntityType>
+        <Association Name="FK_dbo_Paises_dbo_Continentes_ContinenteId">
+          <End Role="Continentes" Type="Self.Continentes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Paises" Type="Self.Paises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continentes">
+              <PropertyRef Name="ContinenteId" />
+            </Principal>
+            <Dependent Role="Paises">
+              <PropertyRef Name="ContinenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Personas_dbo_Paises_PaisId">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="PaisId" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="PaisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CursoPersona">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+          <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CursosVirtualesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Continentes" EntityType="Self.Continentes" />
+          <EntitySet Name="Cursos" EntityType="Self.Cursos" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" />
+          <EntitySet Name="Personas" EntityType="Self.Personas" />
+          <AssociationSet Name="FK_dbo_Paises_dbo_Continentes_ContinenteId" Association="Self.FK_dbo_Paises_dbo_Continentes_ContinenteId">
+            <End Role="Continentes" EntitySet="Continentes" />
+            <End Role="Paises" EntitySet="Paises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Personas_dbo_Paises_PaisId" Association="Self.FK_dbo_Personas_dbo_Paises_PaisId">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Personas" EntitySet="Personas" />
+          </AssociationSet>
+          <AssociationSet Name="CursoPersona" Association="Self.CursoPersona">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Personas" EntitySet="Personas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CursosVirtualesModelStoreContainer" CdmEntityContainer="CursosVirtualesEntities">
+          <EntitySetMapping Name="Continentes">
+            <EntityTypeMapping TypeName="CursosVirtualesModel.Continentes">
+              <MappingFragment StoreEntitySet="Continentes">
+                <ScalarProperty Name="ContinenteId" ColumnName="ContinenteId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cursos">
+            <EntityTypeMapping TypeName="CursosVirtualesModel.Cursos">
+              <MappingFragment StoreEntitySet="Cursos">
+                <ScalarProperty Name="CursoId" ColumnName="CursoId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="CursosVirtualesModel.Paises">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Capital" ColumnName="Capital" />
+                <ScalarProperty Name="Poblacion" ColumnName="Poblacion" />
+                <ScalarProperty Name="Establecido" ColumnName="Establecido" />
+                <ScalarProperty Name="ContinenteId" ColumnName="ContinenteId" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personas">
+            <EntityTypeMapping TypeName="CursosVirtualesModel.Personas">
+              <MappingFragment StoreEntitySet="Personas">
+                <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+                <ScalarProperty Name="TipoPersona" ColumnName="TipoPersona" />
+                <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CursoPersona" TypeName="CursosVirtualesModel.CursoPersona" StoreEntitySet="CursoPersona">
+            <EndProperty Name="Cursos">
+              <ScalarProperty Name="CursoId" ColumnName="Curso_CursoId" />
+            </EndProperty>
+            <EndProperty Name="Personas">
+              <ScalarProperty Name="PersonaId" ColumnName="Persona_PersonaId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
