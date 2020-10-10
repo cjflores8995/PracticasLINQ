@@ -11,55 +11,37 @@ namespace LINQConsola
     {
         static void Main(string[] args)
         {
-            //List<T>
+            int[] numeros = new int[] { 1, 4, 3, 56, 23, 22, 54, 87, 1, 33 };
 
-            List<string> listaNombres = new List<string>()
+            //Sintaxis de consulta
+            IEnumerable<int> sintaxisConsulta =
+                from num in numeros
+                where num % 2 == 0
+                orderby num
+                select num;
+
+            Console.WriteLine("Sintaxis de consulta");
+
+            foreach (var numero in sintaxisConsulta)
             {
-                "Carlos", "Jhosef", "Maria", "Ana", "Juanita"
-            };
-
-            //List<T>
-            List<Estudiante> listaEstudiantes = new List<Estudiante>()
-            {
-                new Estudiante{ EstudianteId = 1, Nombre = "Jose", Apellido = "Flores", Grado = 3},
-                new Estudiante{ EstudianteId = 2, Nombre = "Marcia", Apellido = "Villanueva", Grado = 6},
-                new Estudiante{ EstudianteId = 3, Nombre = "David", Apellido = "Fernandez", Grado = 1},
-                new Estudiante{ EstudianteId = 4, Nombre = "Rodrigo", Apellido = "Bueno", Grado = 3},
-                new Estudiante{ EstudianteId = 5, Nombre = "David", Apellido = "Fernandez", Grado = 1},
-                new Estudiante{ EstudianteId = 6, Nombre = "Walter", Apellido = "Olmos", Grado = 3},
-            };
-
-            //IEnumerable<T> 
-            IEnumerable<Estudiante> estudiantes = from estudiante in listaEstudiantes
-                                                  where estudiante.Grado == 3
-                                                  select estudiante;
-
-            foreach (Estudiante est in estudiantes)
-            {
-                Console.WriteLine($"ID: {est.EstudianteId}, Nombre: {est.Nombre} {est.Apellido}, Grado: {est.Grado}");
+                Console.Write($"{numero} ");
             }
 
-            Console.WriteLine("\n");
+            //Sintaxis de metodo
+            IEnumerable<int> sintaxisMetodo = numeros
+                .Where(num => num % 2 == 0)
+                .OrderBy(num => num);
 
-            //var
-            var estudantes2 = from estudiante in listaEstudiantes
-                              where estudiante.Grado != 3
-                              select estudiante;
+            Console.WriteLine("\n\nSintaxis de método");
 
-            foreach (Estudiante est in estudiantes)
+            foreach (var numero in sintaxisConsulta)
             {
-                Console.WriteLine($"ID: {est.EstudianteId}, Nombre: {est.Nombre} {est.Apellido}, Grado: {est.Grado}");
+                Console.Write($"{numero} ");
             }
+
+
 
             Console.ReadKey();
-        }
-
-        public class Estudiante
-        {
-            public int EstudianteId { get; set; }
-            public string Nombre { get; set; }
-            public string Apellido { get; set; }
-            public int Grado { get; set; }
         }
     }
 }
