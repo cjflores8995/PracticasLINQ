@@ -12,7 +12,9 @@ namespace LINQConsola
     {
         static void Main(string[] args)
         {
-            new Ordenacion().Ordenar();
+            //new Ordenacion().Ordenar();
+
+            new Conjuntos().Conjunto();
 
             Console.ReadKey();
         }
