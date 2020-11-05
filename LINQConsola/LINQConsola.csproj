@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Operadores\Conjuntos.cs" />
+    <Compile Include="Operadores\Filtrado.cs" />
     <Compile Include="Operadores\Ordenacion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

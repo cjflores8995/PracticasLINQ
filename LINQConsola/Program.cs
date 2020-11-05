@@ -14,7 +14,9 @@ namespace LINQConsola
         {
             //new Ordenacion().Ordenar();
 
-            new Conjuntos().Conjunto();
+            //new Conjuntos().Conjunto();
+
+            new Filtrado().Filtrar();
 
             Console.ReadKey();
         }
