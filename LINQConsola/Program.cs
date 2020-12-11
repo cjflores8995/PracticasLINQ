@@ -18,7 +18,11 @@ namespace LINQConsola
 
             //new Filtrado().Filtrar();
 
-            new Cuantificadores().Cuantificar();
+            //new Cuantificadores().Cuantificar();
+
+            //new Proyeccion().Proyectar();
+
+            new Particionado().Particionar();
 
             Console.ReadKey();
         }
