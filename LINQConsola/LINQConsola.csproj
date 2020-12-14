@@ -53,9 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operadores\Agregacion.cs" />
+    <Compile Include="Operadores\Agrupacion.cs" />
+    <Compile Include="Operadores\Combinacion.cs" />
+    <Compile Include="Operadores\Concatenacion.cs" />
     <Compile Include="Operadores\Conjuntos.cs" />
+    <Compile Include="Operadores\Conversion.cs" />
     <Compile Include="Operadores\Cuantificadores.cs" />
+    <Compile Include="Operadores\Elementos.cs" />
     <Compile Include="Operadores\Filtrado.cs" />
+    <Compile Include="Operadores\Generacion.cs" />
+    <Compile Include="Operadores\Igualdad.cs" />
     <Compile Include="Operadores\Ordenacion.cs" />
     <Compile Include="Operadores\Particionado.cs" />
     <Compile Include="Operadores\Proyeccion.cs" />

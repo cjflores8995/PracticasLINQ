@@ -22,7 +22,23 @@ namespace LINQConsola
 
             //new Proyeccion().Proyectar();
 
-            new Particionado().Particionar();
+            //new Particionado().Particionar();
+
+            //new Combinacion().Combinaciones();
+
+            //new Agrupacion().Agrupaciones();
+
+            //new Generacion().Generar();
+
+            //new Igualdad().DeIgualdad();
+
+            //new Elementos().Elemento();
+
+            //new Conversion().ConversionDeTipos();
+
+            //new Concatenacion().Concatenar();
+
+            new Agregacion().OperadoresAgregacion();
 
             Console.ReadKey();
         }
