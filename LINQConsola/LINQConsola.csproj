@@ -44,7 +44,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +55,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fuentes\LinqToArrayList.cs" />
+    <Compile Include="Fuentes\LinqToDataSets.cs" />
+    <Compile Include="Fuentes\LinqToFileDirectories.cs" />
+    <Compile Include="Fuentes\LinqToObject.cs" />
+    <Compile Include="Fuentes\LinqToReflection.cs" />
+    <Compile Include="Fuentes\LinqToSql.cs" />
+    <Compile Include="Fuentes\LinqToString.cs" />
+    <Compile Include="Fuentes\LinqToXml.cs" />
+    <Compile Include="LINQExtension.cs" />
+    <Compile Include="LINQToSQL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LINQToSQL.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Operadores\Agregacion.cs" />
     <Compile Include="Operadores\Agrupacion.cs" />
     <Compile Include="Operadores\Combinacion.cs" />
@@ -69,16 +85,47 @@
     <Compile Include="Operadores\Proyeccion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Archivos\Listado.csv" />
+    <None Include="LINQToSQL.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LINQToSQL.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LINQToSQL.dbml.layout">
+      <DependentUpon>LINQToSQL.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LINQDataAccess\LINQDataAccess.csproj">
       <Project>{17478124-c744-4bd0-b8d2-0635c2879768}</Project>
       <Name>LINQDataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MiLibreria\MiLibreria.csproj">
+      <Project>{0454270f-b24e-4052-909c-a1d7c353b7b4}</Project>
+      <Name>MiLibreria</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\archivo2.txt" />
+    <Content Include="Archivos\archivo3.txt" />
+    <Content Include="Archivos\archivo1.txt" />
+    <Content Include="Archivos\Empleados.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

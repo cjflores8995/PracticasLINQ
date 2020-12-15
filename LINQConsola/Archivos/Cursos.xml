@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Documento generado a partir de la tabla cursos-->
+<Cursos>
+  <Curso Id="1">
+    <NombreCurso>Object-oriented programming</NombreCurso>
+    <Idioma>ingles</Idioma>
+    <Precio>35.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.3</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.3</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="2">
+    <NombreCurso>entity Framework con linq</NombreCurso>
+    <Idioma>ingles</Idioma>
+    <Precio>79.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.647</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.647</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="3">
+    <NombreCurso>Programación estructurada</NombreCurso>
+    <Idioma>ingles</Idioma>
+    <Precio>81.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.65</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.65</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="4">
+    <NombreCurso>Matematicas orientadas a la programación</NombreCurso>
+    <Idioma>español</Idioma>
+    <Precio>29.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.653</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.653</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="5">
+    <NombreCurso>wordpress desde cero hasta crear una tienda online</NombreCurso>
+    <Idioma>ingles</Idioma>
+    <Precio>79.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.653</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.653</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="6">
+    <NombreCurso>vue js desde cero hasta experto</NombreCurso>
+    <Idioma>aleman</Idioma>
+    <Precio>16.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.657</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.657</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="7">
+    <NombreCurso>Universidad Java - De Cero a Master +93 hrs (JDK 15 update)!</NombreCurso>
+    <Idioma>español</Idioma>
+    <Precio>17.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.657</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.657</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="8">
+    <NombreCurso>Desarrollo web. HTML desde cero. Edición 2020</NombreCurso>
+    <Idioma>aleman</Idioma>
+    <Precio>81.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.657</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.657</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="9">
+    <NombreCurso>Desarrollo web. CSS desde cero. Edición 2020</NombreCurso>
+    <Idioma>portugues</Idioma>
+    <Precio>98.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.657</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.657</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="10">
+    <NombreCurso>ReactiveX - RxJs: De cero hasta los detalles</NombreCurso>
+    <Idioma>español</Idioma>
+    <Precio>44.99</Precio>
+    <FechaRegistro>2020-10-05T23:30:30.66</FechaRegistro>
+    <FechaModificacion>2020-10-05T23:30:30.66</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+  <Curso Id="11">
+    <NombreCurso>TRabajando con Linq y Xml</NombreCurso>
+    <Idioma>español</Idioma>
+    <Precio>79.99</Precio>
+    <FechaRegistro>2020-12-15T01:53:51.8743807Z</FechaRegistro>
+    <FechaModificacion>2020-12-15T01:53:51.8743807Z</FechaModificacion>
+    <Estado>true</Estado>
+  </Curso>
+</Cursos>

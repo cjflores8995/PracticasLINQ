@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+<Empresa>
+  <Empleado>
+    <Nombre>Joaquina</Nombre>
+    <Apellido>Patil</Apellido>
+    <ContactNo>1234567890</ContactNo>
+    <Email>tanmaypatil@xyz.com</Email>
+    <Direccion>
+      <Ciudad>Bangalore</Ciudad>
+      <Estado>Karnataka</Estado>
+    </Direccion>
+  </Empleado>
+  <Empleado>
+    <Nombre>Carlos</Nombre>
+    <Apellido>Flores</Apellido>
+    <ContactNo>0987451244</ContactNo>
+    <Email>cflores@email.com</Email>
+    <Direccion>
+      <Ciudad>Azuay</Ciudad>
+      <Estado>Cuenca</Estado>
+    </Direccion>
+  </Empleado>
+  <Empleado>
+    <Nombre>Tommy</Nombre>
+    <Apellido>Mayers</Apellido>
+    <ContactNo>541554784</ContactNo>
+    <Email>tmayers@xyz.com</Email>
+    <Direccion>
+      <Ciudad>Loja</Ciudad>
+      <Estado>Nueva Loja</Estado>
+    </Direccion>
+  </Empleado>
+</Empresa>
